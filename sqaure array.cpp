@@ -7,7 +7,7 @@ public:
         int siz=a.size();
         vector<int> neg;
         vector<int> pos;
-        // int i;
+        
         for(int i=0;i<siz;i++)
         {
             if(a[i]<0)
@@ -16,13 +16,13 @@ public:
             pos.push_back(a[i]);
 
         }
-        if(neg.size()==0) // no negative element
+        if(neg.size()==0)
         {
             for(int i=0;i<pos.size();i++)
             pos[i]=pos[i]*pos[i];
             return pos;
         }
-        if(pos.size()==0) // no positibve
+        if(pos.size()==0) 
         {
             for(int i=0;i<neg.size();i++)
             neg[i]=neg[i]*neg[i];
@@ -55,7 +55,7 @@ public:
                 id++;
                 j++;
             }
-        } // whilwe loop khatam
+        } 
         while(i<n)
         {
             res[id]=neg[i];
