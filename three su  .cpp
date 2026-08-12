@@ -18,50 +18,41 @@ public:
                 continue;
             }
 
-            int left = i + 1;
-            int right = n - 1;
-
-            int sum = -nums[i];
-
-            while(left < right) {
-
-                int s = nums[left] + nums[right];
-
-                if(s == sum) {
-
-                    result.push_back({nums[i], nums[left], nums[right]});
-
-                    left++;
-                    right--;
+            int l = i + 1;
+            int r= n - 1;
+            while(l<r){
+                long long sum =(long long) nums[i]+nums[l]+nums[r];
+                if (sum == 0){
+                    result.push_back({nums[i],nums[l],nums[r]});
+                    while(l<r && nums[l] == nums[l+1]) l++;
+                    while(l<r && nums[r] == nums[r-1])r--;
+                    l++;
+                    r--;
+                
 
                 }
-                else if(s < sum) {
-                    left++;
+                else if(sum<0){
+                    l++;
                 }
-                else {
-                    right--;
+                else{
+                    r--;
                 }
+               
             }
         }
-
-        return result;
+         return result;
     }
 };
-int main() {
-    Solution sol;
-    vector<int> nums = {-1, 0, 1, 2, -1, -4};
-    vector<vector<int>> result = sol.threeSum(nums);
-
-    for(const auto& triplet : result) {
-        cout << "[";
-        for(size_t i = 0; i < triplet.size(); i++) {
-            cout << triplet[i];
-            if(i < triplet.size() - 1) {
-                cout << ", ";
-            }
-        }
-        cout << "]" << endl;
-    }
-
-    return 0;
-}
+          int main(){
+            
+              Solution s;
+              vector<int> nums = {-1,0,1,2,-1,-4};
+              vector<vector<int>> result = s.threeSum(nums);
+              for(auto v: result){
+                  cout<<"[";
+                  for(auto i: v){
+                      cout<<i<<" ";
+                  }
+                  cout<<"]"<<endl;
+              }
+          }
