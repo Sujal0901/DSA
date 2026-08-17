@@ -29,4 +29,11 @@ class solution{
 
 int main (){
     
+    vector<int> arr = {1,2,3,4,5};
+    int k = 3;
+    solution sol;
+    int result = sol.maxSubarraySum(arr , k);
+    cout<<result<<endl;
+}
+    
     
