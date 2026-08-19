@@ -3,7 +3,7 @@
 using namespace std;
 class solution{
     public :
-    int leftrotate(vector<int>&arr , int k){
+void leftRotate(vector<int>& arr , int k){
         int n = arr.size();
         for(int j = 0;j<k;j++){
             int temp = arr[0];
@@ -12,15 +12,15 @@ class solution{
             }
             arr[n-1]= temp;
         }
-        return 0;
+    }
+    int main(){
+        vector<int> arr = {1,2,3,4,5 ,6,7}};
+        int k = 3;
+        solution sol;
+        sol.leftRotate(arr , k);
+        for(int i =0;i<arr.size();i++){
+            cout<<arr[i]<<" ";
+        }
+
     }
 };
-int main(){
-    vector<int> arr = {1,2,3,4,5};
-    int k = 2;
-    solution sol;
-    sol.leftrotate(arr , k);
-    for(int i =0;i<arr.size();i++){
-        cout<<arr[i]<<" ";
-    }
-}
